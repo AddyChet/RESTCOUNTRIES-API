@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Country</title>
+    <link rel="stylesheet" href="country.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:200,300,regular,500,600,700,800,900,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+      integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="./country.js" defer></script>
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <h2 class="title"><a href="/">Where in the world?</a></h2>
+      </div>
+    </header>
+    <main id="country-content">
+      <div class="btn-container">
+        <span onclick="history.back()"
+          ><input type="button" value="←&nbsp;&nbsp;Back"
+        /></span>
+      </div>
+      <div class="country-container">
+        <img id="flag-img"src="" alt="" />
+
+        <div class="country-details">
+          <div class="text">
+            <h1></h1>
+          </div>
+          <div class="country-info">
+            <p class="demo-name"></p>
+            <p class="demo-pop"></p>
+            <p class="demo-reg"></p>
+            <p class="demo-sub-reg"></p>
+            <p class="demo-cap"></p>
+            <p class="demo-tld"></p>
+            <p class="demo-curr"></p>
+            <p class="demo-lang"></p>
+          </div>
+
+          <div class="border-info">
+
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
