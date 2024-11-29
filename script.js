@@ -50,7 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
   fetch("https://restcountries.com/v3.1/all")
     .then(res => res.json())
     .then(data => {
-      console.log(data);
       countryCards(data);
       allCountriesData = data;
     })
@@ -59,7 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
   filterRegion.addEventListener("change", () => {
-    console.log(filterRegion.value)
     fetch(`https://restcountries.com/v3.1/region/${filterRegion.value}`)
       .then(res => res.json())
       .then(data => {
@@ -78,7 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   function countryCards(data) {
-    console.log("Fetched data: ", data); 
     cardContainer.innerHTML = "";
     data.forEach((e) => {
       const card = document.createElement("a");

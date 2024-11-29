@@ -64,8 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         native.innerHTML = `<b>Native Name:</b> ${country.name.common}`;
       }
-
-      console.log(country);
+      
       pop.innerHTML = `<b>Population:</b> ${country.population.toLocaleString()}`;
       reg.innerHTML = `<b>Region:</b> ${country.region}`;
       subReg.innerHTML = country.subregion ? `<b>Sub-Region:</b> ${country.subregion}` : `<b>Sub-Region:</b>`;
