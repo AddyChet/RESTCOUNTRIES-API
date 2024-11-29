@@ -1,10 +1,11 @@
-document.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener('DOMContentLoaded', () => {
   const cardContainer = document.querySelector(".countries-container");
   const filterRegion = document.querySelector("#continent");
   const input = document.querySelector(".search input");
   const body = document.querySelector("body");
   const headContainer = document.querySelector(".header-container");
   const toggleBtn = document.createElement("p");
+
   toggleBtn.classList.add("toggle-btn");
   toggleBtn.innerHTML = `
     <i class="fa-regular fa-moon"></i> <span class="toggle-text">Dark mode</span>
@@ -46,23 +47,27 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   let allCountriesData;
 
-  try {
-    const res = await fetch("https://restcountries.com/v3.1/all");
-    const data = await res.json();
-    countryCards(data);
-    allCountriesData = data;
-  } catch (error) {
-    console.error('Error fetching all countries:', error);
-  }
-
-  filterRegion.addEventListener("change", async () => {
-    try {
-      const res = await fetch(`https://restcountries.com/v3.1/region/${filterRegion.value}`);
-      const data = await res.json();
+  fetch("https://restcountries.com/v3.1/all")
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);
       countryCards(data);
-    } catch (error) {
-      console.error('Error fetching region data:', error);
-    }
+      allCountriesData = data;
+    })
+    .catch(error => {
+      console.error('Error fetching all countries:', error);
+    });
+
+  filterRegion.addEventListener("change", () => {
+    console.log(filterRegion.value)
+    fetch(`https://restcountries.com/v3.1/region/${filterRegion.value}`)
+      .then(res => res.json())
+      .then(data => {
+        countryCards(data);
+      })
+      .catch(error => {
+        console.error('Error fetching region data:', error);
+      });
   });
 
   input.addEventListener("input", (e) => {
@@ -73,6 +78,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 
   function countryCards(data) {
+    console.log("Fetched data: ", data); 
     cardContainer.innerHTML = "";
     data.forEach((e) => {
       const card = document.createElement("a");
